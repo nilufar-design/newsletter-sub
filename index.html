@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newslater-subscribe</title>
+</head>
+<link href="style.css" type="text/css" rel="stylesheet">
+<body>
+    <div class="newslater-box" id="form-sec">
+        <div class="img-sec">
+            <img src="illustration-sign-up-desktop.svg";>
+        </div>
+        <div class="img-sec-mob">
+            <img src="illustration-sign-up-mobile.svg"; width="100%">
+        </div>
+        <div class="form-sec">
+            <p>Stay Updated!</p>
+            <form>
+                <label>Enter email:</label>
+                <label id="false_lbl">valid email required</label>
+                <input type="email" required placeholder="info@company.com" id="email">
+                <button type="submit" onclick="checkmail(email)">subscribe to mounthly newspaper</button>
+            </form>
+        </div>
+    </div>
+    <div class="confirm-mail" id="confirm-mail">
+        <div class="confirm-mail-box">
+            <img src="icon-list.svg">
+            <p>Thanks for 
+                <br>
+                subscribing!
+            </p>
+            <button onclick="hide_button()">Dismiss message</button>
+        </div>
+
+    </div>
+    <script>
+    var rejex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var email_input = document.getElementById("email");
+    var lbl_false = document.getElementById("false_lbl");
+    var email_cnfrm = document.getElementById("confirm-mail");
+    var form_sec= document.getElementById("form-sec");
+    function checkmail(input){
+    
+    if (input.value.match(rejex))
+    {
+        form_sec.style.display="none";
+        email_cnfrm.style.visibility = "visible"; 
+        return true;
+    }
+    else{
+        email_input.style.background="#ff00004a";
+        email_input.style.border="solid 2px #e60707";
+        lbl_false.style.display="block";
+        return false;
+    }
+}
+function hide_button(){
+    email_cnfrm.style.display="none";
+    
+}
+    </script>
+</body>
+</html>
